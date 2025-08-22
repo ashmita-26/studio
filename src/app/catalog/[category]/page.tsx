@@ -1,3 +1,5 @@
+"use client";
+
 import { notFound } from "next/navigation";
 import { categories, allPlants } from "@/lib/placeholder-data";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -5,14 +7,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
-
-export function generateStaticParams() {
-  return categories.map((category) => ({
-    category: category.slug,
-  }));
-}
+import { useCart } from "@/hooks/use-cart";
+import { useToast } from "@/hooks/use-toast";
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
+  const { addItem } = useCart();
+  const { toast } = useToast();
+
+  const handleAddToCart = (plant: any) => {
+    addItem(plant);
+    toast({
+      title: "Added to cart",
+      description: `${plant.name} has been added to your cart.`,
+    });
+  };
+
   const category = categories.find((c) => c.slug === params.category);
 
   if (!category) {
@@ -53,7 +62,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                 <Button asChild className="w-full">
                   <Link href={`/catalog/${plant.categorySlug}/${plant.id}`}>Shop Now</Link>
                 </Button>
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full" onClick={() => handleAddToCart(plant)}>
                   <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
                 </Button>
             </CardFooter>

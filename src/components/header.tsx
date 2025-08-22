@@ -20,6 +20,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import { useCart } from '@/hooks/use-cart';
 
 
 const navLinks = [
@@ -78,6 +79,25 @@ function UserNav() {
   )
 }
 
+function CartNav() {
+  const { cart } = useCart();
+  const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
+  return (
+    <Button variant="ghost" size="icon" asChild>
+      <Link href="/cart">
+        <ShoppingCart className="h-5 w-5" />
+        {itemCount > 0 && (
+          <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-xs text-accent-foreground">
+            {itemCount}
+          </span>
+        )}
+        <span className="sr-only">Shopping Cart</span>
+      </Link>
+    </Button>
+  );
+}
+
 export default function Header() {
   const pathname = usePathname();
   const { user, loading } = useAuth();
@@ -108,6 +128,7 @@ export default function Header() {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
+          <CartNav />
           {!loading && <UserNav />}
         </div>
 
@@ -134,6 +155,15 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
+                   <Link
+                      href="/cart"
+                      className={cn(
+                        "text-lg transition-colors hover:text-accent",
+                        pathname === "/cart" ? "text-accent" : "text-foreground"
+                      )}
+                    >
+                      Cart
+                    </Link>
                 </nav>
                 <div className="mt-6 pt-6 border-t">
                   {!loading && !user ? (
