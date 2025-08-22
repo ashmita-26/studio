@@ -13,6 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 export default function CategoryPage({ params }: { params: { category: string } }) {
   const { addItem } = useCart();
   const { toast } = useToast();
+  const { category: categorySlug } = params;
 
   const handleAddToCart = (plant: any) => {
     addItem(plant);
@@ -22,7 +23,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
     });
   };
 
-  const category = categories.find((c) => c.slug === params.category);
+  const category = categories.find((c) => c.slug === categorySlug);
 
   if (!category) {
     notFound();
