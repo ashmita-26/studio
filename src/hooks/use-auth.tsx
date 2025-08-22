@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { User, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { User, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, RecaptchaVerifier, signInWithPhoneNumber, ConfirmationResult, UserCredential } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
 
@@ -11,9 +11,19 @@ interface AuthContextType {
   login: (email: string, pass: string) => Promise<any>;
   signup: (email: string, pass: string, name: string) => Promise<any>;
   logout: () => Promise<void>;
+  setupRecaptcha: (phoneNumber: string) => Promise<ConfirmationResult>;
+  confirmOtp: (confirmationResult: ConfirmationResult, otp: string) => Promise<UserCredential>;
+  updateUserProfile: (user: User, profile: { displayName?: string, photoURL?: string }) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+// Extend window type for reCAPTCHA
+declare global {
+  interface Window {
+    recaptchaVerifier?: RecaptchaVerifier;
+  }
+}
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -45,6 +55,26 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return userCredential;
   };
 
+  const setupRecaptcha = (phoneNumber: string) => {
+    if (!window.recaptchaVerifier) {
+      window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+        'size': 'invisible',
+        'callback': (response: any) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+        }
+      });
+    }
+    return signInWithPhoneNumber(auth, phoneNumber, window.recaptchaVerifier);
+  }
+
+  const confirmOtp = (confirmationResult: ConfirmationResult, otp: string) => {
+    return confirmationResult.confirm(otp);
+  }
+  
+  const updateUserProfile = (user: User, profile: { displayName?: string, photoURL?: string }) => {
+     return updateProfile(user, profile);
+  }
+
   const logout = async () => {
     await signOut(auth);
     router.push('/login');
@@ -56,6 +86,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     login,
     signup,
     logout,
+    setupRecaptcha,
+    confirmOtp,
+    updateUserProfile,
   };
 
   return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
