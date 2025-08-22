@@ -21,6 +21,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export default function SignupPage() {
   const [name, setName] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -61,6 +62,10 @@ export default function SignupPage() {
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
             <Input id="name" placeholder="Your Name" required value={name} onChange={(e) => setName(e.target.value)} />
+          </div>
+           <div className="space-y-2">
+            <Label htmlFor="mobile">Mobile Number</Label>
+            <Input id="mobile" placeholder="Your Mobile Number" required value={mobileNumber} onChange={(e) => setMobileNumber(e.target.value)} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
