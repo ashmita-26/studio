@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from './ui/button';
-import { Leaf, Menu, User, LogOut, ShoppingCart } from 'lucide-react';
+import { Leaf, Menu, User, LogOut } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
@@ -89,7 +89,7 @@ export default function Header() {
         <div className="mr-auto flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Leaf className="h-6 w-6 text-accent" />
-            <span className="font-bold font-headline text-lg">Verdant Vista</span>
+            <span className="font-bold font-headline text-lg">PSG Nursery</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map(link => (

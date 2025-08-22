@@ -30,7 +30,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
           </div>
           <div className="container mx-auto px-4 text-center relative z-10">
-            <h1 className="text-4xl md:text-6xl font-headline font-bold text-primary-foreground mb-4">Welcome to Verdant Vista</h1>
+            <h1 className="text-4xl md:text-6xl font-headline font-bold text-primary-foreground mb-4">Welcome to PSG Nursery</h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
               Discover a world of green. From vibrant indoor plants to majestic outdoor trees, find the perfect addition to your home and garden.
             </p>
@@ -67,7 +67,7 @@ export default function Home() {
               <div>
                 <h2 className="text-3xl md:text-4xl font-headline font-bold mb-4">Your Oasis of Greenery</h2>
                 <p className="text-lg text-foreground/80 mb-4">
-                  At Verdant Vista, we're passionate about plants. Our nursery is a sanctuary for plant lovers, offering a diverse selection of high-quality flora. We believe in the power of plants to transform spaces and enrich lives.
+                  At PSG Nursery, we're passionate about plants. Our nursery is a sanctuary for plant lovers, offering a diverse selection of high-quality flora. We believe in the power of plants to transform spaces and enrich lives.
                 </p>
                 <p className="text-foreground/80">
                   Our expert team is always on hand to provide advice, from choosing the right plant to helping it thrive in its new home. We're more than just a nursery; we're a community of green thumbs.

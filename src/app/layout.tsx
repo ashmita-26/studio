@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { AuthProvider } from '@/hooks/use-auth';
 
 export const metadata: Metadata = {
-  title: 'Verdant Vista',
+  title: 'PSG Nursery',
   description: 'Your local plant nursery for a greener life.',
 };
 

@@ -8,10 +8,10 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-2 mb-4 md:mb-0">
             <Leaf className="h-6 w-6 text-accent" />
-            <span className="font-bold font-headline text-lg">Verdant Vista</span>
+            <span className="font-bold font-headline text-lg">PSG Nursery</span>
           </div>
           <p className="text-sm text-foreground/80">
-            &copy; {new Date().getFullYear()} Verdant Vista. All rights reserved.
+            &copy; {new Date().getFullYear()} PSG Nursery. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <Link href="#" className="text-foreground/80 hover:text-accent transition-colors">Facebook</Link>
