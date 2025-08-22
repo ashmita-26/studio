@@ -10,7 +10,7 @@ export const categories: Category[] = [
     description: 'Thrives in indoor environments, perfect for homes and offices.',
     plants: [
       { id: 'p1', name: 'Snake Plant', type: 'Indoor Plant', price: 25.00, description: 'Known for its air-purifying qualities and low maintenance.', imageUrl: 'https://placehold.co/600x400.png', dataAiHint: 'snake plant', environment: 'indoor' },
-      { id: 'p2', name: 'Monstera Deliciosa', type: 'Indoor Plant', price: 45.00, description: 'Iconic for its large, split leaves. A true statement plant.', imageUrl: 'https://placehold.co/600x400.png', dataAiHint: 'monstera plant', environment: 'indoor' },
+      { id: 'p2', name: 'Monstera Deliciosa', type: 'Indoor Plant', price: 45.00, description: 'Iconic for its large, split leaves. A true statement plant.', imageUrl: 'https://placehold.co/600x400.png', dataAiHint: 'monstera deliciosa', environment: 'indoor' },
       { id: 'p3', name: 'ZZ Plant', type: 'Indoor Plant', price: 30.00, description: 'Extremely drought-tolerant and can handle low light.', imageUrl: 'https://placehold.co/600x400.png', dataAiHint: 'zz plant', environment: 'indoor' },
     ]
   },
@@ -44,7 +44,7 @@ export const categories: Category[] = [
     icon: Trees,
     description: 'The foundational elements for creating structure and shade in your landscape.',
     plants: [
-      { id: 'p9', name: 'Fiddle Leaf Fig Tree', type: 'Tree', price: 120.00, description: 'A popular indoor tree with large, violin-shaped leaves.', imageUrl: 'https://placehold.co/600x400.png', dataAiHint: 'fiddle leaf fig', environment: 'indoor' },
+      { id: 'p9', name: 'Fiddle Leaf Fig Tree', type: 'Tree', price: 120.00, description: 'A popular indoor tree with large, violin-shaped leaves.', imageUrl: 'https://placehold.co/600x400.png', dataAiHint: 'fiddle leaf', environment: 'indoor' },
       { id: 'p10', name: 'Magnolia Tree', type: 'Tree', price: 200.00, description: 'Produces large, fragrant white blossoms in the spring.', imageUrl: 'https://placehold.co/600x400.png', dataAiHint: 'magnolia tree', environment: 'outdoor' },
       { id: 'p11', name: 'Hydrangea Shrub', type: 'Shrub', price: 75.00, description: 'Known for its large, beautiful clusters of flowers.', imageUrl: 'https://placehold.co/600x400.png', dataAiHint: 'hydrangea shrub', environment: 'outdoor' },
     ]
