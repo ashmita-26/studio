@@ -3,6 +3,9 @@ import { allPlants } from "@/lib/placeholder-data";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import CareTipsGenerator from "@/components/care-tips-generator";
+import { Button } from "@/components/ui/button";
+import { ShoppingCart } from "lucide-react";
+import Link from "next/link";
 
 export function generateStaticParams() {
     return allPlants.map((plant) => ({
@@ -11,7 +14,7 @@ export function generateStaticParams() {
     }));
 }
 
-export default function ProductPage({ params }: { params: { productId: string } }) {
+export default function ProductPage({ params }: { params: { productId: string, category: string } }) {
   const plant = allPlants.find((p) => p.id === params.productId);
 
   if (!plant) {
@@ -40,6 +43,14 @@ export default function ProductPage({ params }: { params: { productId: string } 
           <p className="text-3xl font-semibold text-accent mb-6">₹{plant.price.toFixed(2)}</p>
           <p className="text-foreground/80 leading-relaxed mb-8">{plant.description}</p>
           
+          <div className="flex gap-4 mb-6">
+            <Button size="lg" className="w-full">Shop Now</Button>
+            <Button size="lg" variant="outline" className="w-full">
+              <ShoppingCart className="mr-2 h-5 w-5" />
+              Add to Cart
+            </Button>
+          </div>
+
           <div className="mt-auto">
              <CareTipsGenerator plantName={plant.name} plantType={plant.type} environment={plant.environment} />
           </div>
