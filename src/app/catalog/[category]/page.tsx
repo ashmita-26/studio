@@ -1,3 +1,5 @@
+"use client";
+
 import { notFound } from "next/navigation";
 import { categories, allPlants } from "@/lib/placeholder-data";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
