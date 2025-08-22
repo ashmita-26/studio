@@ -1,3 +1,4 @@
+
 "use client";
 
 import { notFound } from "next/navigation";
@@ -14,7 +15,7 @@ import { useToast } from "@/hooks/use-toast";
 export default function ProductPage({ params }: { params: { productId: string, category: string } }) {
   const { addItem } = useCart();
   const { toast } = useToast();
-  const { productId } = params;
+  const { productId, category } = params;
 
   const plant = allPlants.find((p) => p.id === productId);
 
@@ -54,10 +55,6 @@ export default function ProductPage({ params }: { params: { productId: string, c
           
           <div className="flex gap-4 mb-6">
             <Button size="lg" className="w-full" onClick={handleAddToCart}>Shop Now</Button>
-            <Button size="lg" variant="outline" className="w-full" onClick={handleAddToCart}>
-              <ShoppingCart className="mr-2 h-5 w-5" />
-              Add to Cart
-            </Button>
           </div>
 
           <div className="mt-auto">

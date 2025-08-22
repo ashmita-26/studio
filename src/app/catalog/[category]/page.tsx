@@ -1,3 +1,4 @@
+
 "use client";
 
 import { notFound } from "next/navigation";
@@ -10,9 +11,10 @@ import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
 import { useToast } from "@/hooks/use-toast";
 
-export default function CategoryPage({ params: { category: categorySlug } }: { params: { category: string } }) {
+export default function CategoryPage({ params }: { params: { category: string } }) {
   const { addItem } = useCart();
   const { toast } = useToast();
+  const { category: categorySlug } = params;
 
   const handleAddToCart = (plant: any) => {
     addItem(plant);
@@ -61,9 +63,6 @@ export default function CategoryPage({ params: { category: categorySlug } }: { p
             <CardFooter className="p-4 pt-0 flex gap-2">
                 <Button asChild className="w-full">
                   <Link href={`/catalog/${plant.categorySlug}/${plant.id}`}>Shop Now</Link>
-                </Button>
-                <Button variant="outline" className="w-full" onClick={() => handleAddToCart(plant)}>
-                  <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
                 </Button>
             </CardFooter>
           </Card>
