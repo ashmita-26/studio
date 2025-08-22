@@ -13,7 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 export default function CategoryPage({ params }: { params: { category: string } }) {
   const { addItem } = useCart();
   const { toast } = useToast();
-  const { category: categorySlug } = params;
+  const categorySlug = params.category;
 
   const handleAddToCart = (plant: any) => {
     addItem(plant);
