@@ -7,22 +7,9 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart } from "lucide-react";
-import { useCart } from "@/hooks/use-cart";
-import { useToast } from "@/hooks/use-toast";
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
-  const { addItem } = useCart();
-  const { toast } = useToast();
   const { category: categorySlug } = params;
-
-  const handleAddToCart = (plant: any) => {
-    addItem(plant);
-    toast({
-      title: "Added to cart",
-      description: `${plant.name} has been added to your cart.`,
-    });
-  };
 
   const category = categories.find((c) => c.slug === categorySlug);
 

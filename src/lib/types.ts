@@ -19,7 +19,3 @@ export interface Category {
   description: string;
   plants: Plant[];
 }
-
-export interface CartItem extends Plant {
-  quantity: number;
-}

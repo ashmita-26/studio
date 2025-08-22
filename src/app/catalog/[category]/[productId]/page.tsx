@@ -9,11 +9,9 @@ import CareTipsGenerator from "@/components/care-tips-generator";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
-import { useCart } from "@/hooks/use-cart";
 import { useToast } from "@/hooks/use-toast";
 
 export default function ProductPage({ params }: { params: { productId: string, category: string } }) {
-  const { addItem } = useCart();
   const { toast } = useToast();
   const { productId, category } = params;
 
@@ -23,11 +21,10 @@ export default function ProductPage({ params }: { params: { productId: string, c
     notFound();
   }
 
-  const handleAddToCart = () => {
-    addItem(plant);
+  const handleShopNow = () => {
     toast({
-      title: "Added to cart",
-      description: `${plant.name} has been added to your cart.`,
+      title: "Thanks for your interest!",
+      description: "This is a demo. Shopping cart is not implemented.",
     });
   };
 
@@ -54,7 +51,7 @@ export default function ProductPage({ params }: { params: { productId: string, c
           <p className="text-foreground/80 leading-relaxed mb-8">{plant.description}</p>
           
           <div className="flex gap-4 mb-6">
-            <Button size="lg" className="w-full" onClick={handleAddToCart}>Shop Now</Button>
+            <Button size="lg" className="w-full" onClick={handleShopNow}>Shop Now</Button>
           </div>
 
           <div className="mt-auto">
