@@ -14,8 +14,9 @@ import { useToast } from "@/hooks/use-toast";
 export default function ProductPage({ params }: { params: { productId: string, category: string } }) {
   const { addItem } = useCart();
   const { toast } = useToast();
+  const { productId } = params;
 
-  const plant = allPlants.find((p) => p.id === params.productId);
+  const plant = allPlants.find((p) => p.id === productId);
 
   if (!plant) {
     notFound();
