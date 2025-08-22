@@ -10,9 +10,10 @@ import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
 import { useToast } from "@/hooks/use-toast";
 
-export default function CategoryPage({ params: { category: categorySlug } }: { params: { category: string } }) {
+export default function CategoryPage({ params }: { params: { category: string } }) {
   const { addItem } = useCart();
   const { toast } = useToast();
+  const { category: categorySlug } = params;
 
   const handleAddToCart = (plant: any) => {
     addItem(plant);
