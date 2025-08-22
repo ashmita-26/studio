@@ -44,7 +44,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                 <p className="text-sm text-muted-foreground">{plant.type}</p>
               </CardContent>
               <CardFooter className="p-4 pt-0">
-                <p className="font-semibold text-lg text-accent">${plant.price.toFixed(2)}</p>
+                <p className="font-semibold text-lg text-accent">₹{plant.price.toFixed(2)}</p>
               </CardFooter>
             </Card>
           </Link>

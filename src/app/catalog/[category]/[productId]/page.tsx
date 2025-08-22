@@ -37,7 +37,7 @@ export default function ProductPage({ params }: { params: { productId: string } 
           <div className="mb-4">
             <Badge variant="secondary">{plant.type}</Badge>
           </div>
-          <p className="text-3xl font-semibold text-accent mb-6">${plant.price.toFixed(2)}</p>
+          <p className="text-3xl font-semibold text-accent mb-6">₹{plant.price.toFixed(2)}</p>
           <p className="text-foreground/80 leading-relaxed mb-8">{plant.description}</p>
           
           <div className="mt-auto">
