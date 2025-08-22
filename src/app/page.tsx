@@ -21,7 +21,7 @@ export default function Home() {
         <section className="relative py-20 md:py-32 bg-primary/20">
           <div className="absolute inset-0">
              <Image
-                src="https://placehold.co/1600x800.png"
+                src="https://i.ibb.co/Pggx3fT/karuna-nursery-garden-parassala-thiruvananthapuram-plant-nurseries-xghx6iww89.jpg"
                 alt="Lush green plants in a nursery"
                 data-ai-hint="lush green plants"
                 fill
