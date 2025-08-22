@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { categories } from "@/lib/placeholder-data";
@@ -6,7 +8,6 @@ import { cn } from "@/lib/utils";
 import { usePathname } from 'next/navigation';
 
 function SidebarNav() {
-  "use client";
   const pathname = usePathname();
 
   return (
