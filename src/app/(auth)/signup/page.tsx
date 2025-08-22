@@ -106,7 +106,7 @@ export default function SignupPage() {
           {!confirmationResult ? (
              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" onClick={handleSendOtp} disabled={loading}>
               {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Send OTP
+              Register
             </Button>
           ) : (
             <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" onClick={handleSignup} disabled={loading}>
